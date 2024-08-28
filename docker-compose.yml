@@ -4,7 +4,7 @@ services:
     image: sisdrenagem/db
     restart: no 
     shm_size: 256mb
-    env_file: .env
+    env_file: .env.development
     ports:
       - $PG_LOCAL_PORT:$PG_DOCKER_PORT
     environment:
@@ -17,7 +17,7 @@ services:
     container_name: sisdrenagem-api
     image: sisdrenagem/api
     restart: no 
-    env_file: .env
+    env_file: .env.development
     ports:
       - $API_LOCAL_PORT:$API_DOCKER_PORT
     depends_on: [db]
@@ -25,7 +25,7 @@ services:
     container_name: sisdrenagem-ui
     image: sisdrenagem/ui
     restart: no 
-    env_file: .env
+    env_file: .env.development
     ports:
       - $VITE_LOCAL_PORT:$VITE_DOCKER_PORT
     depends_on: [db,api]
