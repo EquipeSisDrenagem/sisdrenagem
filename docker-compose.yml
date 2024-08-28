@@ -1,7 +1,7 @@
 services:
   db:
     container_name: sisdrenagem-db
-    image: postgres:alpine
+    image: sisdrenagem/db
     restart: no 
     shm_size: 256mb
     env_file: .env
@@ -13,21 +13,19 @@ services:
       - POSTGRES_DB=$POSTGRES_DATABASE
       - POSTGRES_HOST=$POSTGRES_HOST
       - POSTGRES_INITDB_ARGS=$POSTGRES_INITDB_ARGS
-  ui:
-    container_name: sisdrenagem-ui
-    image: SisDrenagem/sisdrenagem-ui
-    build: ./Front
-    restart: no 
-    env_file: .env
-    ports:
-      - $VITE_LOCAL_PORT:$VITE_DOCKER_PORT
-    depends_on: [db,api]
   api:
     container_name: sisdrenagem-api
-    image: SisDrenagem/sisdrenagem-api
-    build: ./Back
+    image: sisdrenagem/api
     restart: no 
     env_file: .env
     ports:
       - $API_LOCAL_PORT:$API_DOCKER_PORT
     depends_on: [db]
+  ui:
+    container_name: sisdrenagem-ui
+    image: sisdrenagem/ui
+    restart: no 
+    env_file: .env
+    ports:
+      - $VITE_LOCAL_PORT:$VITE_DOCKER_PORT
+    depends_on: [db,api]
