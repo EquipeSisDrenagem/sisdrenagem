@@ -13,12 +13,15 @@ no computador. Também é necessário ter as permissões adequadas, dependendo d
 sistema operacional, e para que o projeto rode corretamente, o arquivo .env deve
 ser colocado no diretório raiz correspondente a esse repositório.
 
-#TODO: adicionar comandos para diferentes SOs e distros, conforme aplicável
+Os seguintes comandos precisam ser executados apenas uma vez.
 
 ### Arch Linux / EndeavourOS
 ```bash
   \# pacman -S docker docker-compose
   \# usermod -aG docker $(whoami)
-  \# systemctl start docker.service
-  \$ docker compose up --build
+  \# systemctl start --enable docker.service
+  \# chmod +x ./build_docker_images.sh
+  \$ docker compose up
 ```
+
+#TODO: adicionar comandos para diferentes SOs e distros, conforme aplicável

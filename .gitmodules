@@ -1,11 +1,11 @@
 [submodule "Front"]
-  path = sisdrenagem-ui
-  url = git@github.com:EquipeSisDrenagem/Front.git
+	path = Front
+	url = git@github.com:EquipeSisDrenagem/Front.git
 
 [submodule "Back"]
-  path = sisdrenagem-api
-  url = git@github.com:EquipeSisDrenagem/Back.git
+	path = Back
+	url = git@github.com:EquipeSisDrenagem/Back.git
 
 [submodule "postgres"]
-  path = sisdrenagem-db
-  url = git@github.com:EquipeSisDrenagem/postgres.git
+	path = postgres
+	url = git@github.com:EquipeSisDrenagem/postgres.git
