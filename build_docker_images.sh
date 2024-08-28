@@ -4,11 +4,11 @@ CURR_DIR=$PWD
 UI_GIT_REPO=refactor
 API_GIT_REPO=database-integration
 
-cd $PWD/Back
+cd $CURR_DIR/Back
 git checkout $API_GIT_REPO && git pull
-cd $PWD/Front
+cd $CURR_DIR/Front
 git checkout $UI_GIT_REPO && git pull
-cd $PWD
+cd $CURR_DIR
 
 docker build --tag sisdrenagem/db ./postgres/
 docker build --tag sisdrenagem/api ./Back/
