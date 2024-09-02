@@ -4,13 +4,12 @@ services:
     image: sisdrenagem/db:latest
     restart: no 
     shm_size: 256mb
-    env_file: development.env
     environment:
       - POSTGRES_USER=sisdrenagem
       - POSTGRES_PASSWORD=tartarugasninja
       - POSTGRES_DB=sisdrenagem-dev
       - POSTGRES_HOST=sisdrenagem-db
-      # - POSTGRES_INITDB_ARGS='--locale-provider=icu --icu-locale=pt-BR'
+      - POSTGRES_INITDB_ARGS='--locale-provider=icu --icu-locale=pt-BR'
     ports:
       - 5432:5432
   api:
