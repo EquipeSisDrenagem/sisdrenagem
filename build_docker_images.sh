@@ -2,7 +2,7 @@
 
 CURR_DIR=$PWD
 UI_GIT_REPO=refactor
-API_GIT_REPO=database-integration
+API_GIT_REPO=serialization
 
 cd $CURR_DIR/Back
 git checkout $API_GIT_REPO && git pull
