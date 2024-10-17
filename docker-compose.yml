@@ -5,30 +5,30 @@ services:
     restart: no 
     shm_size: 256mb
     environment:
+      - POSTGRES_HOST=sisdrenagem-db
       - POSTGRES_USER=sisdrenagem
       - POSTGRES_PASSWORD=tartarugasninja
       - POSTGRES_DB=sisdrenagem-dev
-      - POSTGRES_HOST=sisdrenagem-db
       # - POSTGRES_INITDB_ARGS='--locale-provider=icu --icu-locale=pt-BR'
     ports:
       - 5432:5432
-  api:
-    container_name: sisdrenagem-api
-    image: sisdrenagem/api:latest
-    restart: no 
-    environment:
-      - PG_DOCKER_HOST=localhost
-      - PG_DOCKER_PORT=5432
-    ports:
-      - 3420:3420
-    depends_on: [db]
-  ui:
-    container_name: sisdrenagem-ui
-    image: sisdrenagem/ui:latest
-    restart: no 
-    environment:
-      - API_DOCKER_HOST=localhost
-      - API_DOCKER_PORT=3420
-    ports:
-      - 5173:5173
-    depends_on: [db,api]
+  # api:
+  #   container_name: sisdrenagem-api
+  #   image: sisdrenagem/api:latest
+  #   restart: no 
+  #   environment:
+  #     - PG_DOCKER_HOST=localhost
+  #     - PG_DOCKER_PORT=5432
+  #   ports:
+  #     - 3420:3420
+  #   depends_on: [db]
+  # ui:
+  #   container_name: sisdrenagem-ui
+  #   image: sisdrenagem/ui:latest
+  #   restart: no 
+  #   environment:
+  #     - API_DOCKER_HOST=localhost
+  #     - API_DOCKER_PORT=3420
+  #   ports:
+  #     - 5173:5173
+  #   depends_on: [db,api]
